@@ -1,0 +1,56 @@
+#tombol-navbar {
+    border-color: #8261ee;
+    color: #8261ee;
+}
+
+#tombol-navbar2 {
+    color: #8261ee;
+}
+
+#tombol-navbar2:hover {
+    color: white;
+}
+
+#tombol-submit {
+    background-color: #8261ee;
+}
+
+#tombol-navbar:hover {
+    background-color: #8261ee;
+    color: white;
+}
+
+.footer-right {
+    margin-top: 15px;
+}
+
+.navbar-custom {
+    background-color: white;
+}
+
+
+/* change the brand and text color */
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/* change the link color */
+
+.navbar-custom .navbar-nav .nav-link {
+    color: black;
+}
+
+
+/* change the color of active or hovered links */
+
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #8261ee;
+}
+
+.navbar-dark.navbar-nav .nav-link {
+    color: black;
+}

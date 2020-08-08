@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    /**
+     * This namespace is applied to your controller routes.
+     *
+     * In addition, it is set as the URL generator's root namespace.
+     *
+     * @var string
+     */
+    protected $namespace = 'App\Http\Controllers';
+
+    /**
+     * The path to the "home" route for your application.
+     *
+     * @var string
+     */
+    public const HOME = '/home';
+
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+
+        parent::boot();
+    }
+
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapAdminRoutes();
+        $this->mapPPIDRoutes();
+        $this->mapUnitRoutes();
+        $this->mapApiRoutes();
+        $this->mapWebRoutes();
+
+        //
+    }
+    protected function mapAdminRoutes()
+    {
+        Route::middleware('web', 'auth', 'role:Admin')
+            ->prefix('admin')
+            ->name('admin.')
+            ->namespace($this->namespace . '\Admin')
+            ->group(base_path('routes/admin.php'));
+    }
+
+    protected function mapPPIDRoutes()
+    {
+        Route::middleware('web', 'auth', 'role:PPID')
+            ->prefix('ppid')
+            ->name('ppid.')
+            ->namespace($this->namespace . '\PPID')
+            ->group(base_path('routes/ppid.php'));
+    }
+    protected function mapUnitRoutes()
+    {
+        Route::middleware('web', 'auth', 'role:Unit-Kerja')
+            ->prefix('unit')
+            ->name('unit.')
+            ->namespace($this->namespace. '\UnitKerja')
+            ->group(base_path('routes/unit-kerja.php'));
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
+    }
+}
