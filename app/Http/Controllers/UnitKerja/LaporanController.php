@@ -6,6 +6,7 @@ use App\Category;
 use App\Laporan;
 use App\Status;
 use App\Http\Controllers\Controller;
+use App\Notifications\NotifTinjau;
 use Illuminate\Http\Request;
 use Session;
 use Auth;
@@ -47,7 +48,8 @@ class LaporanController extends Controller
                             ->update(['ditinjau' => 0]);
 
         $ditinjau = laporan::where('id', $id)->update(['ditinjau' => 1]);
-
+        $users = User::role(['PPID'])->get();
+        Notification::send($users, new NotifTinjau($ditinjau));
         return redirect()->back();
     }
 
