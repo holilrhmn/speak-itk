@@ -79,9 +79,9 @@ class UserController extends Controller
 
             'email' => 'required|email|unique:users,email',
 
-            'password' => 'required|same:confirm-password',
+            // 'password' => 'required|same:confirm-password',
 
-            'roles' => 'required'
+            // 'roles' => 'required'
 
         ]);
 
@@ -89,7 +89,7 @@ class UserController extends Controller
 
         $input = $request->all();
 
-        $input['password'] = Hash::make($input['password']);
+        // $input['password'] = Hash::make($input['password']);
 
 
 

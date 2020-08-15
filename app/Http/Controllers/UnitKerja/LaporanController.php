@@ -12,7 +12,7 @@ use Session;
 use Auth;
 use Illuminate\Support\Arr;
 
-
+use App\User;
 
 
 class LaporanController extends Controller
@@ -47,9 +47,11 @@ class LaporanController extends Controller
         Laporan::where('id', $lapor_id)
                             ->update(['ditinjau' => 0]);
 
-        $ditinjau = laporan::where('id', $id)->update(['ditinjau' => 1]);
+        $laporan = Laporan::where('id', $id)->update(['ditinjau' => 1]);
+
         $users = User::role(['PPID'])->get();
-        Notification::send($users, new NotifTinjau($ditinjau));
+        Notification::send($users, new NotifTinjau($laporan));
+
         return redirect()->back();
     }
 
@@ -95,28 +97,49 @@ class LaporanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function editProfil(User $user)
     {
-        //
+        $user = Auth::user();
+        return view('Unit-Kerja.profil',compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        //
+    
+    public function updateProfil(Request $request, $id){
+
+        $this->validate($request, [
+
+            'name' => 'required',
+
+            'email' => 'required|email|unique:users,email,'.$id,
+
+            'password' => 'same:confirm-password',
+
+        ]);
+
+
+
+        $input = $request->all();
+
+        if(!empty($input['password'])){
+
+            $input['password'] = Hash::make($input['password']);
+
+        }else{
+
+            $input = array_except($input,array('password'));
+
+        }
+
+
+
+        $user = User::find($id);
+
+        $user->update($input);
+
+        return redirect()->route('unit.edit.profil')
+
+                        ->with('success','User Profil Berhasil Diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
 }

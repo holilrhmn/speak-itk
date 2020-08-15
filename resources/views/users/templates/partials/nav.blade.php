@@ -27,11 +27,14 @@
 
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <div class="pull-right">
+                <div class="">
+                    <a href="{{ route('edit.profil') }}" class="btn btn-block btn-default btn-info">Edit Profil</a>
+                </div>  
+                  <div class="">
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
-                        class="btn btn-block btn-default btn-flat">Keluar</a>
+                        class="btn btn-block btn-default btn-danger">Keluar</a>
                   </div>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

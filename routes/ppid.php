@@ -22,3 +22,5 @@ Route::match(['get','post'],'/filter/dashboard','LaporanController@filterHome')-
 Route::get('/laporan/edit_status/{laporan}', 'LaporanController@editStatus')->name('laporan.edit-status');
 Route::put('/laporan/update_status/{laporan}', 'LaporanController@updateStatus')->name('laporan.update-status');
 
+Route::get('/edit/profil', 'HomeController@editProfil')->name('edit.profil');
+Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('update.profil');

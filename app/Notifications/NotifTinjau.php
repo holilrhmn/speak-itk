@@ -18,7 +18,7 @@ class NotifTinjau extends Notification
      */
     public function __construct($laporan)
     {
-        $this->laporan =$laporan;
+        $this->laporan = $laporan;
     }
 
     /**

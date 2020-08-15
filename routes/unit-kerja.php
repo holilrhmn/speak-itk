@@ -11,6 +11,7 @@ Route::get('/laporan/download/{lampiran}', 'LaporanController@download')->name('
 
 Route::get('/laporan/ditinjau/{id}', 'LaporanController@ditinjau')->name('laporan.ditinjau');
 
-
+Route::get('/edit/profil', 'LaporanController@editProfil')->name('edit.profil');
+Route::post('/update/{user}/profil', 'LaporanController@updateProfil')->name('update.profil');
 
 

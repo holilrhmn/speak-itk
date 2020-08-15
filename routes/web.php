@@ -27,4 +27,5 @@ Route::get('/lapor', 'Users\LaporController@index')->name('lapor')->middleware('
 Route::get('/lapor/{laporan}', 'Users\LaporController@show')->name('show')->middleware('auth');
 Route::post('/lapor/review/{id}', 'Users\LaporController@update')->name('lapor.review')->middleware('auth');
 Route::delete('/lapor/destroy/{laporan}', 'Users\LaporController@destroy')->name('laporan.destroy')->middleware('auth');
-
+Route::get('/edit/profil', 'HomeController@editProfil')->name('edit.profil');
+Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('update.profil');
