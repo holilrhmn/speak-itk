@@ -65,15 +65,15 @@
         </li>
         <!-- Menu Footer-->
         <li class="user-footer">
-            <div class="pull-left">
-                <a href="{{ route('admin.edit.profil') }}" >Edit Profil</a>
-            </div>
-          <div class="pull-right">
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"
-                class="btn btn-block btn-default btn-flat">Keluar</a>
-          </div>
+            <div class="btn-group-vertical btn-block">
+                <a href="{{ route('admin.edit.profil') }}" class="btn btn-block btn-outline-info">Edit Profil</a>
+
+
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                    class="btn btn-block btn-outline-danger">Keluar</a>
+              </div>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Session;
 use Auth;
 use Illuminate\Support\Arr;
-
+use Notification;
 use App\User;
 
 
@@ -36,18 +36,18 @@ class LaporanController extends Controller
 
     }
 
-    public function ditinjau(Request $request, $id)
+    public function ditinjau(Laporan $laporan)
     {
-        $id = (int) $id;
+        // $id = (int) $id;
 
-        $lapor = Laporan::where('id', $id)
-                                ->pluck('id')->toArray();
-        $lapor_id= Arr::get($lapor, '0', 0);
-        // Set is_thumbnail = 0 for all image of hotel_id
-        Laporan::where('id', $lapor_id)
-                            ->update(['ditinjau' => 0]);
+        // $lapor = Laporan::where('id', $id)
+        //                         ->pluck('id')->toArray();
+        // $lapor_id= Arr::get($lapor, '0', 0);
+        // Laporan::where('id', $lapor_id)
+        //                     ->update(['ditinjau' => 0]);
 
-        $laporan = Laporan::where('id', $id)->update(['ditinjau' => 1]);
+        // $lapor = Laporan::where('id', $id)->update(['ditinjau' => 1]);
+        $laporan->update(['ditinjau' => !$laporan->ditinjau]);
 
         $users = User::role(['PPID'])->get();
         Notification::send($users, new NotifTinjau($laporan));
@@ -103,7 +103,7 @@ class LaporanController extends Controller
         return view('Unit-Kerja.profil',compact('user'));
     }
 
-    
+
     public function updateProfil(Request $request, $id){
 
         $this->validate($request, [

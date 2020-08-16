@@ -50,4 +50,8 @@ class LaporController extends Controller
         return redirect()->back();
     }
 
+    public function download($lampiran){
+        return response()->download('storage/'.$lampiran);
+    }
+
 }

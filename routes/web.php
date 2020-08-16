@@ -29,3 +29,4 @@ Route::post('/lapor/review/{id}', 'Users\LaporController@update')->name('lapor.r
 Route::delete('/lapor/destroy/{laporan}', 'Users\LaporController@destroy')->name('laporan.destroy')->middleware('auth');
 Route::get('/edit/profil', 'HomeController@editProfil')->name('edit.profil');
 Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('update.profil');
+Route::get('/lapor/download/{lampiran}', 'Users\LaporController@download')->name('lapor.download');

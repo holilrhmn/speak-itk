@@ -27,15 +27,15 @@
 
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                <div class="">
-                    <a href="{{ route('edit.profil') }}" class="btn btn-block btn-default btn-info">Edit Profil</a>
-                </div>  
-                  <div class="">
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                        class="btn btn-block btn-default btn-danger">Keluar</a>
-                  </div>
+                    <div class="btn-group-vertical btn-block">
+                        <a href="{{ route('edit.profil') }}" class="btn btn-block btn-outline-info">Edit Profil</a>
+
+
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"
+                            class="btn btn-block btn-outline-danger">Keluar</a>
+                      </div>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                   </form>

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-3 col-sm-12 col-md-6">
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-3 col-sm-12 col-md-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -34,7 +34,7 @@
                         <a href="{{ route('ppid.category.index') }}" class="small-box-footer">Lihat Data Kategori <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-3 col-sm-12 col-md-6">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
@@ -48,7 +48,7 @@
                         <a href="{{ Route('ppid.laporan.complete') }}" class="small-box-footer">Jumlah Laporan Terselesaikan</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-3 col-sm-12 col-md-6">
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
@@ -71,7 +71,7 @@
                 <div class="card-header">
                     <div class="inner">
                         <h3 class="card-title">Lihat Dashboard berdasarkan Tahun</h3>
-                        
+
                     </div>
                 </div>
                 <div class="card-body">
@@ -79,7 +79,7 @@
                         @csrf
                         <div class="form-group">
                                 <label >Pilih Tahun</label>
-                                <input type="text" 
+                                <input type="text"
                                 id="datepicker" name="filter"  class="form-control">
                         </div>
                         <div class="text-center">
@@ -106,7 +106,7 @@
                     </div>
                 </section>
             </div>
-            
+
         </div>
 
 
@@ -156,7 +156,7 @@
 		})
         $("#datepicker").datepicker({
     format: "yyyy",
-    viewMode: "years", 
+    viewMode: "years",
     minViewMode: "years"
     });
     </script>

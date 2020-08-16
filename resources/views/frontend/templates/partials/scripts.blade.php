@@ -9,7 +9,7 @@
 <script src="{{ asset('landing-page/js/waypoints.min.js') }}"></script>
 <script src="{{ asset('landing-page/js/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('landing-page/js/imgfix.min.js') }}"></script>
-
+<script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- Global Init -->
 <script src="{{ asset('landing-page/js/custom.js') }}"></script>
 {{-- <script src="https://cdn.tiny.cloud/1/w205rrnxn3lp2crzvirc7arkyhwwpbpuyxwrwgkq20m5bh02/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

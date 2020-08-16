@@ -3,26 +3,6 @@
 @section('content')
 
     @forelse ($lapor as $l)
-
-    {{-- <div class="card card-outline card-primary">
-        <div class="card-body">
-            <h4>Laporan Yang Telah Disampaikan</h4>
-        <p class="card-text">{!! $l->laporan !!}</p>
-        <p>Status Laporan :
-            @if ($l->status->nama === 'Pending')
-            <span class="badge badge-danger">{{ $l->status->nama }}</span>
-            @elseif($l->status->nama === 'Verifikasi')
-            <span class="badge badge-info">{{ $l->status->nama }}</span>
-            @elseif($l->status->nama === 'Complete')
-            <span class="badge badge-success">{{ $l->status->nama }}</span>
-            @else
-            <span class="badge badge-warning">{{ $l->status->nama }}</span>
-            @endif
-        </p>
-        <p>Tanggal Laporan Dikirim: {{ $l->created_at }}</p>
-        <a href="{{ route('show', $l) }}" class="card-link">Lihat Selengkapnya</a>
-        </div>
-    </div> --}}
     <div class="card card-outline card-primary mb-3" >
         <div class="row no-gutters">
           <div class="col-md-4">

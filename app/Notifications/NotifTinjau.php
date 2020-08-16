@@ -10,15 +10,15 @@ use Illuminate\Notifications\Notification;
 class NotifTinjau extends Notification
 {
     use Queueable;
-    public $laporan;
+    public $lapor;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($laporan)
+    public function __construct($lapor)
     {
-        $this->laporan = $laporan;
+        $this->laporan = $lapor;
     }
 
     /**
@@ -43,12 +43,10 @@ class NotifTinjau extends Notification
         return (new MailMessage)
                 ->greeting('Assalamualaikum wr.wb')
                 ->subject($this->laporan->subjek)
-                ->line('Status Laporan Anda Telah Berubah')
                 ->line('Berikut Status Laporan Telah Ditinjau Oleh Unit :')
-                ->line($this->laporan->unit_id->name)
-                ->line($this->laporan->ditinjau)
+                ->line($this->laporan->unit->name)
                 ->line('Klik Tombol Dibawah Ini Untuk Melihat Laporan')
-                ->action('View', url(route('lapor',$this->laporan->id)))
+                ->action('View', url(route('ppid.laporan.show',$this->laporan->id)))
                 ->line('Terima Kasih Telah Menggunakan Web Layanan Aspirasi Pengaduan Kampus ITK');
     }
 

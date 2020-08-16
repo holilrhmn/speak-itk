@@ -19,5 +19,3 @@
     <link rel="stylesheet" href="{{ asset('landing-page/css/cards.css') }}">
     <!-- Select 2 -->
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-the/select2-bootstrap4.min.css')}}">
-    

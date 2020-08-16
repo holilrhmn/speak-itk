@@ -52,7 +52,7 @@
                     <th>Deskripsi Laporan</th>
                     <th>Kategori</th>
                     <th>Lampiran</th>
-                    <th>Pilihan Laporan</th>
+                    <th>Kerahasian Laporan</th>
                     <th>Ditinjau</th>
                     <th>Aksi</th>
                 </tr>
@@ -84,11 +84,15 @@
                             @endif
                         </td>
                         <td>
-                            <div class="btn-group-vertical"> 
+                            <div class="btn-group-vertical">
+                            @if ($l->ditinjau == '0')
                                 <a class="btn btn-success" href="{{ route('unit.laporan.ditinjau', $l->id) }}"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                            @else
+                                <a class="btn btn-danger" href="{{ route('unit.laporan.ditinjau', $l->id) }}"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                            @endif
                             <a class="btn btn-info " href="{{ route('unit.laporan.detail', $l->id) }}"><i class="fas fa-eye"></i></a>
                             </div>
-                            
+
                         </td>
                    </tr>
                 @endforeach
